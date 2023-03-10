@@ -2,7 +2,6 @@ import { Box } from '@mui/material';
 import Button from '@mui/material/Button';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import { useAppThemeContext, useDrawerContext } from '../shared/contexts';
 
 export const AppRoutes = () => {

@@ -1,6 +1,6 @@
 import { Avatar, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
-import {Box} from '@mui/system';
-import { Home } from '@mui/icons-material';
+import { Box } from '@mui/system';
+import { Icon } from '@mui/material';
 import { useDrawerContext } from '../../contexts';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({to, icon, label, onClick}) 
     // Também pode ser utilizado um if ternário
     <ListItemButton selected={!!match} onClick={handleClick}>
       <ListItemIcon>
-        <Home>{icon}</Home>
+        <Icon>{icon}</Icon>
       </ListItemIcon>
       <ListItemText primary={label} />
     </ListItemButton>
@@ -38,7 +38,7 @@ export const MenuLateral: React.FC<{children: React.ReactNode}> = ({children}) =
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const {isDrawerOpen, toggleDrawerOpen, drawerOptions} = useDrawerContext();
+  const {isDrawerOpen, drawerOptions, toggleDrawerOpen} = useDrawerContext();
 
   return(
     <>

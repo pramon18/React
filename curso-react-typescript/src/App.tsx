@@ -14,7 +14,7 @@ export const App = () => {
             <AppRoutes />
 
           </MenuLateral>  
-                
+
         </BrowserRouter>
       </DrawerProvider>
     </AppThemeProvider>
