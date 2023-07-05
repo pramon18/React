@@ -1,7 +1,7 @@
-import { Avatar, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
+import { Avatar, Button, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
 import { Icon } from '@mui/material';
-import { useDrawerContext } from '../../contexts';
+import { useAppThemeContext, useDrawerContext } from '../../contexts';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 
 interface IListItemLinkProps {
@@ -39,6 +39,7 @@ export const MenuLateral: React.FC<{children: React.ReactNode}> = ({children}) =
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   const {isDrawerOpen, drawerOptions, toggleDrawerOpen} = useDrawerContext();
+  const {toggleTheme} = useAppThemeContext();
 
   return(
     <>
@@ -50,7 +51,7 @@ export const MenuLateral: React.FC<{children: React.ReactNode}> = ({children}) =
               src='logo192.png'/>
           </Box>          
           <Divider />
-          <Box flex={1}>
+          <Box flex={1} flexDirection={'column'}>
             <List component='nav'>
               {drawerOptions.map(drawerOption => (
                 <ListItemLink
@@ -60,8 +61,16 @@ export const MenuLateral: React.FC<{children: React.ReactNode}> = ({children}) =
                   to={drawerOption.path}
                   onClick={smDown ? toggleDrawerOpen : undefined}/>
               ))}              
-            </List>
+            </List>           
           </Box>
+          <Box>
+            <ListItemButton onClick={toggleTheme}>
+              <ListItemIcon>
+                <Icon>dark_mode</Icon>
+              </ListItemIcon>
+              <ListItemText primary={'Alternar Tema'} />
+            </ListItemButton>
+          </Box> 
         </Box>
       </Drawer>
       <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(28)}>
