@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDrawerContext } from '../shared/contexts';
 import { Dashboard } from '../pages';
+import { Home, Star } from '@mui/icons-material';
 
 export const AppRoutes = () => {
   const { setDrawerOptions } = useDrawerContext();
@@ -9,12 +10,12 @@ export const AppRoutes = () => {
   useEffect(() => {
     setDrawerOptions([
       { 
-        icon: 'home',
+        icon: <Home/>,
         path: '/pagina-inicial',
         label: 'Página Inicial'
       },
       { 
-        icon: 'star',
+        icon: <Star/>,
         path: '/cidades',
         label: 'Cidades'
       },      

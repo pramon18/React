@@ -3,10 +3,12 @@ import { Box } from '@mui/system';
 import { Icon } from '@mui/material';
 import { useAppThemeContext, useDrawerContext } from '../../contexts';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
+import { ReactNode } from 'react';
+import { DarkMode } from '@mui/icons-material';
 
 interface IListItemLinkProps {
   to: string;
-  icon: string;
+  icon: ReactNode;
   label: string;  
   onClick: (() => void) | undefined;
 }
@@ -27,7 +29,7 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({to, icon, label, onClick}) 
     // Também pode ser utilizado um if ternário
     <ListItemButton selected={!!match} onClick={handleClick}>
       <ListItemIcon>
-        <Icon>{icon}</Icon>
+        {icon}
       </ListItemIcon>
       <ListItemText primary={label} />
     </ListItemButton>
@@ -66,7 +68,7 @@ export const MenuLateral: React.FC<{children: React.ReactNode}> = ({children}) =
           <Box>
             <ListItemButton onClick={toggleTheme}>
               <ListItemIcon>
-                <Icon>dark_mode</Icon>
+                <DarkMode/>
               </ListItemIcon>
               <ListItemText primary={'Alternar Tema'} />
             </ListItemButton>

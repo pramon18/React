@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useState } from 'react';
+import { ReactNode, createContext, useCallback, useContext, useState } from 'react';
 
 interface IDrawerContextData {
     isDrawerOpen: boolean;
@@ -8,7 +8,7 @@ interface IDrawerContextData {
 }
 
 interface IDrawerOption {
-  icon: string;
+  icon: ReactNode;
   path: string;
   label: string;
 }
