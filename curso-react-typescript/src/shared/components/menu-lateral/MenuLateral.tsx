@@ -1,6 +1,5 @@
 import { Avatar, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
-import { Icon } from '@mui/material';
 import { useAppThemeContext, useDrawerContext } from '../../contexts';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import { ReactNode } from 'react';
